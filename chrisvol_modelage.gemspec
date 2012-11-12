@@ -6,6 +6,6 @@ Gem::Specification.new do |s|
   s.description = "Active Record models for ChristianVolunteering database"
   s.authors = ["Jim Gummeson"]
   s.email = "jim@techmission.org"
-  s.files = ["lib/chrisvol_modelage.rb", "lib/models/node.rb"]
+  s.files = ["lib/chrisvol_modelage.rb", "lib/models/node.rb", "lib/models/uprofile.rb"]
   s.add_dependency("activerecord", ["= 2.3.5"])
 end
