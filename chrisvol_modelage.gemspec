@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "chrisvol_modelage"
-  s.version = "1.1.0"
+  s.version = "1.2.0"
   s.date = "2012-11-12"
   s.summary = "Active Record models for ChristianVolunteering database"
   s.description = "Active Record models for ChristianVolunteering database"
@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
     "lib/urbmi5_data/modelage.rb",
     "lib/techmi5_voleng/modelage.rb"
   ]
-  s.add_dependency("activerecord")
+  for d in ["activerecord", "safe_attributes"]
+    s.add_dependency(d)
+  end
 end
