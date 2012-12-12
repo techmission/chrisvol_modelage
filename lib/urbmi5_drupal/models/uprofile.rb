@@ -5,7 +5,7 @@ module Urbmi5Drupal
     self.table_name = 'um_content_type_uprofile'
     self.primary_key = 'nid'    
 
-    belongs_to :node, :class_name => "Urbmi5Drupal::Node", :primary_key => "nid", :foreign_key => "nid"
+    include ChrisvolModelage::Urbmi5Drupal::ActsAsNode
 
     def location
       self.node.locations.first

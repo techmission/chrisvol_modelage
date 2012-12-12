@@ -1,6 +1,7 @@
 require "rubygems"
 require "active_record"
 require "connection.rb"
+require "urbmi5_drupal/acts_as_node.rb"
 require "urbmi5_drupal/connection.rb"
 require "urbmi5_drupal/models/node.rb"
 require "urbmi5_drupal/models/uprofile.rb"

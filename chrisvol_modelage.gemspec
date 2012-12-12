@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "chrisvol_modelage"
-  s.version = "1.2.0"
+  s.version = "1.3.0"
   s.date = "2012-11-12"
   s.summary = "Active Record models for ChristianVolunteering database"
   s.description = "Active Record models for ChristianVolunteering database"
@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
     "lib/connection.rb",
     "lib/urbmi5_drupal/modelage.rb",
     "lib/urbmi5_drupal/connection.rb",
+    "lib/urbmi5_drupal/acts_as_node.rb",
     "lib/urbmi5_drupal/models/node.rb", 
     "lib/urbmi5_drupal/models/uprofile.rb",
     "lib/urbmi5_drupal/models/user.rb",
