@@ -7,6 +7,8 @@ module Urbmi5Drupal
 
     include ChrisvolModelage::Urbmi5Drupal::ActsAsNode
 
+    validates_presence_of :field_first_name_value, :field_last_name_value
+
     def location
       self.node.locations.first
     end
