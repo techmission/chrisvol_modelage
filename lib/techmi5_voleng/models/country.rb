@@ -2,7 +2,7 @@ module Techmi5Voleng
   class Country < ActiveRecord::Base
     include ChrisvolModelage::Techmi5Voleng::Connection
 	
-    self.table_name = "country"
+    self.table_name = "techmi5_voleng.country"
 	self.primary_key = "iso"
 	
 	def self.usa
