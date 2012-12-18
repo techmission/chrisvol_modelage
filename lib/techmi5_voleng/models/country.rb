@@ -9,6 +9,10 @@ module Techmi5Voleng
 	  self.find(:first, :conditions => "UCASE(iso3) = 'USA'")
 	end
 	
+	def self.canada
+	  self.find(:first, :conditions => "UCASE(iso3) = 'CAN'")
+	end
+	
 	def provinces
 	  Techmi5Voleng::Province.find(:all, :conditions => "UCASE(country_code) = UCASE('#{self.iso3}')")
 	end
