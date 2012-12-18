@@ -19,7 +19,10 @@ Gem::Specification.new do |s|
     "lib/urbmi5_drupal/models/location.rb",
     "lib/urbmi5_drupal/models/location_instance.rb",
     "lib/urbmi5_data/modelage.rb",
-    "lib/techmi5_voleng/modelage.rb"
+    "lib/techmi5_voleng/modelage.rb",
+	"lib/techmi5_voleng/connection.rb",
+	"lib/techmi5_voleng/models/country.rb",
+	"lib/techmi5_voleng/models/province.rb"
   ]
   for d in ["activerecord", "safe_attributes"]
     s.add_dependency(d)
