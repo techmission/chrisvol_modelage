@@ -4,12 +4,14 @@ module Urbmi5Drupal
     include SafeAttributes::Base
     include ChrisvolModelage::Urbmi5Drupal::Connection
  
-    self.table_name = "country_stateprovince"
+    self.table_name = "um_node"
     self.primary_key = "nid" 
 
     belongs_to :user, :class_name => "Urbmi5Drupal::User", :primary_key => "uid", :foreign_key => "uid"
     has_many :location_instances, :class_name => "Urbmi5Drupal::LocationInstance", :primary_key => "nid", :foreign_key => "nid"
     has_many :locations, :through =>  :location_instances
+    has_many :term_nodes, :class_name => "Urbmi5Drupal::TermNode", :primary_key => "nid", :foreign_key => "nid"
+    has_many :terms, :through => :term_nodes
 
     def self.inheritance_column
       nil

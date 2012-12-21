@@ -5,12 +5,13 @@ module ChrisvolModelage
         model.belongs_to :node, :class_name => "Urbmi5Drupal::Node", :primary_key => "nid", :foreign_key => "nid"
       end
 
+      # Delegations to node...
+
       def user
         n = node
         return nil unless n
         n.user
       end
-      # TODO taxonomy stuff
 
     end
   end
