@@ -1,4 +1,4 @@
-module Urbmi5Drupali
+module Urbmi5Drupal
   class TermNode < ActiveRecord::Base
     include ChrisvolModelage::Urbmi5Drupal::Connection
     self.table_name = "um_term_node"
