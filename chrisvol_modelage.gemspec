@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "chrisvol_modelage"
-  s.version = "1.7.0"
+  s.version = "1.8.0"
   s.date = "2012-11-12"
   s.summary = "Active Record models for ChristianVolunteering database"
   s.description = "Active Record models for ChristianVolunteering database"
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
 	"lib/techmi5_voleng/models/country.rb",
 	"lib/techmi5_voleng/models/province.rb"
   ]
-  for d in ["activerecord", "safe_attributes"]
+  for d in ["activerecord", "safe_attributes", "composite_primary_keys"]
     s.add_dependency(d)
   end
 end
