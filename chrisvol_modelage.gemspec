@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     "lib/urbmi5_drupal/models/session.rb",
     "lib/urbmi5_drupal/models/location.rb",
     "lib/urbmi5_drupal/models/location_instance.rb",
+    "lib/urbmi5_drupal/models/phone.rb",
     "lib/urbmi5_data/modelage.rb",
     "lib/techmi5_voleng/modelage.rb",
 	"lib/techmi5_voleng/connection.rb",
