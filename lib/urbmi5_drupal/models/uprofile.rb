@@ -10,7 +10,7 @@ module Urbmi5Drupal
     validates_presence_of :field_first_name_value, :field_last_name_value
 
     def location
-      @location ||= self.node.locations.first
+      @location ||= (self.node.locations.first || self.node.locations.new)
     end
   end
 end
