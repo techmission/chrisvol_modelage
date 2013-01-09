@@ -14,7 +14,7 @@ module Urbmi5Drupal
 	end
 	
     def location
-	  @location = (location_instance.location || location_instance.build_location)
+	  @location = (location_instance.location || location_instance.build_location(:vid => self.node.vid))
     end
   end
 end
