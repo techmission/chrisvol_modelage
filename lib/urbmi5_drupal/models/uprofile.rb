@@ -10,11 +10,11 @@ module Urbmi5Drupal
     validates_presence_of :field_first_name_value, :field_last_name_value
 
 	def location_instance
-	  @location_instance ||= (self.node.location_instances.first || self.node.location_instances.new)
+	  @location_instance ||= (self.node.location_instances.first || self.node.location_instances.new(:vid => self.node.vid))
 	end
 	
     def location
-	  @location = (location_instance.location || location_instance.build_location(:vid => self.node.vid))
+	  @location = (location_instance.location || location_instance.build_location)
     end
   end
 end
