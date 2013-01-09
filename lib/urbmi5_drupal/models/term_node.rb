@@ -1,5 +1,3 @@
-require 'composite_primary_keys'
-
 module Urbmi5Drupal
   class TermNode < ActiveRecord::Base
     include ChrisvolModelage::Urbmi5Drupal::Connection
