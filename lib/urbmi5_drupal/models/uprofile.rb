@@ -14,7 +14,7 @@ module Urbmi5Drupal
 	end
 	
     def location
-      @location ||= (self.node.locations.first || self.node.locations.new)
+	  @location = (location_instance.location || location_instance.build_location)
     end
   end
 end
