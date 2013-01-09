@@ -1,5 +1,3 @@
-require 'safe_attributes/base'
-
 module Urbmi5Drupal
   class Node < ActiveRecord::Base
     include SafeAttributes::Base
