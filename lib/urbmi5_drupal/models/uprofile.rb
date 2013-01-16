@@ -28,7 +28,7 @@ module Urbmi5Drupal
 	
 	def individual?
 	  case field_site_use_type_value
-	  when "Both", "Individual" then true
+	  when "Both", "Volunteer" then true
 	  else false
 	  end
 	end
