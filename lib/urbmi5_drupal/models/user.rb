@@ -4,6 +4,8 @@ module Urbmi5Drupal
     self.table_name = 'um_users'
     self.primary_key = 'uid'
 
+	validates :username, :presence => true, :uniqueness => true
+	
     def uprofile
       uprofile_node = Node.find(:first, :conditions => "type = 'uprofile' and uid  = '#{self.id}'")
       return nil unless uprofile_node      
