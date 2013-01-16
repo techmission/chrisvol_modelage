@@ -30,6 +30,7 @@ module Urbmi5Drupal
 	  case field_site_use_type_value
 	  when "Both", "Individual" then true
 	  else false
+	  end
 	end
   end
 end
