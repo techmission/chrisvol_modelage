@@ -10,7 +10,7 @@ module Urbmi5Drupal
 	
 	validates :country,
        	      :inclusion => {:in => Techmi5Voleng::Country.find(:all).map{|c| c.iso}},
-			  :allow_nil => true,
+			  :allow_blank => true,
 		      :if        => Proc.new{|l| !l.uprofile.blank?}
     validates :country,
 	          :presence => true,

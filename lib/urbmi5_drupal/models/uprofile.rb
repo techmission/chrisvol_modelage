@@ -15,7 +15,7 @@ module Urbmi5Drupal
 			  :inclusion => {:in => ["Both", "Church", "Organization", "Volunteer"]}
 	validates :field_birth_year_value, 
 			  :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
-			  :allow_nil    => true
+			  :allow_blank => true
 	validates :field_birth_year_value,
 	          :presence => true,
 			  :if       => :individual_past_step_one?
