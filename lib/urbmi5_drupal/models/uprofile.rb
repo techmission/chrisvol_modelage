@@ -10,7 +10,7 @@ module Urbmi5Drupal
 	validate do |up|
 	  up.validates :field_first_name_value, :field_last_name_value, :presence => true
 	  up.validates :field_site_use_type_value, 
-	               :presence  => true 
+	               :presence  => true,
 			       :inclusion => {:in => ["Both", "Church", "Organization", "Volunteer"]}
 	  up.validates :field_birth_year_value, 
 			       :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
