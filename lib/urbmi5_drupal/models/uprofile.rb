@@ -17,7 +17,7 @@ module Urbmi5Drupal
 			  :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
 			  :allow_nil    => true
 	validates :field_birth_year_value,
-	          :presence => true
+	          :presence => true,
 			  :if       => :individual_past_step_one?
 	
 	def profile
