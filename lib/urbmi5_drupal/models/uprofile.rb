@@ -7,23 +7,70 @@ module Urbmi5Drupal
 
     include ChrisvolModelage::Urbmi5Drupal::ActsAsNode
 
-    validates_presence_of :field_first_name_value, :field_last_name_value
-	validates_presence_of :field_site_use_type_value, :in => ["Both", "Church", "Organization", "Volunteer"]
+	validates :field_first_name_value, 
+	          :field_last_name_value, 
+			  :presence => true
+	validates :field_site_use_type_value, 
+	          :presence  => true,
+			  :inclusion => {:in => ["Both", "Church", "Organization", "Volunteer"]}
 	validates :field_birth_year_value, 
-	          :presence     => true, 
 			  :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
-			  :if           => :existing_individual?
+			  :allow_blank => true
+	validates :field_birth_year_value,
+	          :presence => true,
+			  :if       => :individual_past_step_one?
+	
+	def profile
+	  Profile.find_by_drupal_uprofile_nid(self.nid)
+	end
 	
 	def location_instance
 	  @location_instance ||= (self.node.location_instances.first || self.node.location_instances.new(:vid => self.node.vid))
 	end
 	
     def location
-	  @location = (location_instance.location || location_instance.build_location)
+	  return @location if @location
+	  l = (location_instance.location || location_instance.build_location)
+	  l.uprofile = self
+	  @location = l
     end
 	
-	def existing_individual?
-	  !new_record? and individual?
+	def state
+	  if new_record? or
+	  user.blank? or
+	  user.name_was.blank? or
+	  user.mail_was.blank? or
+	  field_first_name_value_was.blank? or
+	  field_last_name_value_was.blank?
+	    :step_one
+	  elsif individual? and (
+	    field_birth_year_value_was.blank? or
+		profile.blank? or
+		profile.phones.blank? or
+		location.blank? or
+		location.country_was.blank? or
+		location.postal_code_was.blank?
+	  )
+	    :step_two
+	  else
+	    :complete
+	  end
+	end
+	
+	def step_one?
+	  state == :step_one
+	end
+	
+	def step_two?
+	  state == :step_two
+	end
+	
+	def complete?
+	  state == :complete
+	end
+	
+	def past_step_one?
+	  step_two? or complete?
 	end
 	
 	def individual?
@@ -31,6 +78,10 @@ module Urbmi5Drupal
 	  when "Both", "Volunteer" then true
 	  else false
 	  end
+	end
+	
+	def individual_past_step_one?
+	  individual? and past_step_one?
 	end
   end
 end

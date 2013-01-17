@@ -20,8 +20,12 @@ class Profile < ActiveRecord::Base
   has_many :courses, :class_name => :ProfileCourse, :autosave => false
   has_many :certifications, :class_name => :ProfileCertification, :autosave => false
   
-  validates_confirmation_of :password, :unless => Proc.new { |p| p.password.blank? && p.password_confirmation.blank? }
-  validates_presence_of :phones, :if => Proc.new {|profile| profile.uprofile.existing_individual? }
+  validates :password, 
+            :confirmation => true, 
+            :unless => Proc.new {|p| p.password.blank? and p.password_confirmation.blank?} 
+  validates :phones, 
+            :presence => true, 
+			:if => Proc.new {|p| p.uprofile.individual_past_step_one?}
   
   def uprofile
     return nil unless drupal_uprofile_nid
