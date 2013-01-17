@@ -37,7 +37,7 @@ module Urbmi5Drupal
 	  field_first_name_value_was.blank? or
 	  field_last_name_value_was.blank?
 	    :step_one
-	  elsif individual and (
+	  elsif individual? and (
 	    field_birth_year_value_was.blank? or
 		profile.blank? or
 		profile.phones.blank? or
