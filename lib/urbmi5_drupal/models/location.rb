@@ -1,3 +1,5 @@
+require 'techmi5_voleng/modelage.rb'
+
 module Urbmi5Drupal
   class Location < ActiveRecord::Base
     include ChrisvolModelage::Urbmi5Drupal::Connection
