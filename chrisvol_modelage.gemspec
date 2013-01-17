@@ -26,17 +26,17 @@ Gem::Specification.new do |s|
 	"lib/techmi5_voleng/models/province.rb",
 	"lib/chrisvol_on_rails/modelage.rb",
     "lib/chrisvol_on_rails/connection.rb",
-    "lib/chrisvol_on_rails/models/profile"
-    "lib/chrisvol_on_rails/models/profile_certification"
-    "lib/chrisvol_on_rails/models/profile_course"
-    "lib/chrisvol_on_rails/models/profile_education"
-    "lib/chrisvol_on_rails/models/profile_language"
-    "lib/chrisvol_on_rails/models/profile_phone"
-    "lib/chrisvol_on_rails/models/profile_position"
-    "lib/chrisvol_on_rails/models/profile_publication"
-    "lib/chrisvol_on_rails/models/profile_skill"
-    "lib/chrisvol_on_rails/models/profile_volunteer_cause"
-    "lib/chrisvol_on_rails/models/profile_volunteer_experience"
+    "lib/chrisvol_on_rails/models/profile",
+    "lib/chrisvol_on_rails/models/profile_certification",
+    "lib/chrisvol_on_rails/models/profile_course",
+    "lib/chrisvol_on_rails/models/profile_education",
+    "lib/chrisvol_on_rails/models/profile_language",
+    "lib/chrisvol_on_rails/models/profile_phone",
+    "lib/chrisvol_on_rails/models/profile_position",
+    "lib/chrisvol_on_rails/models/profile_publication",
+    "lib/chrisvol_on_rails/models/profile_skill",
+    "lib/chrisvol_on_rails/models/profile_volunteer_cause",
+    "lib/chrisvol_on_rails/models/profile_volunteer_experience",
     "lib/chrisvol_on_rails/models/profile_volunteer_organization"
   ]
   for d in ["activerecord", "safe_attributes", "composite_primary_keys"]
