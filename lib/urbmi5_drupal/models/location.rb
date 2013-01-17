@@ -8,17 +8,17 @@ module Urbmi5Drupal
 	has_many :phones, :class_name => "Urbmi5Drupal::Phone", :primary_key => :lid, :foreign_key => :lid
 	has_many :location_instances, :class_name => "Urbmi5Drupal::LocationInstance", :primary_key => :lid, :foreign_key => :lid
 	
-	validate do |l|
-	  unless uprofile.blank?
-	    validates :country,
-       	          :inclusion => {:in => Techmi5Voleng::Country.find(:all).map{|c| c.iso}},
-			      :allow_nil => !l.uprofile.individual_past_step_one?
-        if l.country.upcase == "US" and l.uprofile.individual_past_step_one?
-		  validates :postal_code, :presence => true  
-        end		
-	  end
-	end
-	
+	validates :country,
+       	      :inclusion => {:in => Techmi5Voleng::Country.find(:all).map{|c| c.iso}},
+			  :allow_nil => true,
+		      :if        => Proc.new{|l| !l.uprofile.blank?}
+    validates :country,
+	          :presence => true,
+			  :if => Proc.new{|l| !l.uprofile.blank? and l.uprofile.individual_past_step_one?}
+	validates :postal_code,
+	          :presence => true,
+			  :if => Proc.new{|l| !l.uprofile.blank? and l.uprofile.individual_past_step_one? and l.country.upcase == "US"}
+
 	attr_accessor :uprofile
   end
 end

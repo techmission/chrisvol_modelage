@@ -7,15 +7,18 @@ module Urbmi5Drupal
 
     include ChrisvolModelage::Urbmi5Drupal::ActsAsNode
 
-	validate do |up|
-	  up.validates :field_first_name_value, :field_last_name_value, :presence => true
-	  up.validates :field_site_use_type_value, 
-	               :presence  => true,
-			       :inclusion => {:in => ["Both", "Church", "Organization", "Volunteer"]}
-	  up.validates :field_birth_year_value, 
-			       :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
-			       :allow_nil    => !up.individual_past_step_one?
-	end
+	validates :field_first_name_value, 
+	          :field_last_name_value, 
+			  :presence => true
+	validates :field_site_use_type_value, 
+	          :presence  => true,
+			  :inclusion => {:in => ["Both", "Church", "Organization", "Volunteer"]}
+	validates :field_birth_year_value, 
+			  :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
+			  :allow_nil    => true
+	validates :field_birth_year_value,
+	          :presence => true
+			  :if       => :individual_past_step_one?
 	
 	def profile
 	  Profile.find_by_drupal_uprofile_nid(self.nid)
@@ -26,7 +29,10 @@ module Urbmi5Drupal
 	end
 	
     def location
-	  @location = (location_instance.location || location_instance.build_location)
+	  return @location if @location
+	  l = (location_instance.location || location_instance.build_location)
+	  l.uprofile = self
+	  @location = l
     end
 	
 	def state
