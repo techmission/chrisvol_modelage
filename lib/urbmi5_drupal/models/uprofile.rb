@@ -75,7 +75,7 @@ module Urbmi5Drupal
 	end
 	
 	def individual_past_step_one?
-	  individual? and 
+	  individual? and past_step_one?
 	end
   end
 end
