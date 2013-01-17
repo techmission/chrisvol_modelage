@@ -15,7 +15,7 @@ module Urbmi5Drupal
 	  location_instances.
 	  map{|li| Urbmi5Drupal::Uprofile.find_by_nid(li.nid)}.
 	  compact.
-	  select{|up| up.individual?}.
+	  select{|up| up.existing_individual?}.
 	  length > 0
 	end
   end
