@@ -5,6 +5,7 @@ module Urbmi5Drupal
     self.primary_key = 'uid'
 
 	validates :name, :presence => true, :uniqueness => true
+	validates_presence_of :mail
 	
     def uprofile
       uprofile_node = Node.find(:first, :conditions => "type = 'uprofile' and uid  = '#{self.id}'")
