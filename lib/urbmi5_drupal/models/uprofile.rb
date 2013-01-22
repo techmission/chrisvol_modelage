@@ -29,7 +29,7 @@ module Urbmi5Drupal
 	end
 	
         def location
-	  return @location if @location
+	  return @location if defined?(@location)
 	  l = (self.node.locations.first || self.node.locations.new)
 	  l.uprofile = self
 	  @location = l
