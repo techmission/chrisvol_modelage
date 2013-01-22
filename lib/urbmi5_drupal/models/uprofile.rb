@@ -25,15 +25,18 @@ module Urbmi5Drupal
 	end
 	
 	def location_instance
-	  @location_instance ||= (self.node.location_instances.first || self.location.location_instances.new(:vid => self.node.vid))
+	  @location_instance ||= (
+            self.location.location_instances.first || 
+            self.location.location_instances.new(:vid => self.node.vid, :nid => self.node.nid, :location => location)
+          )
 	end
 	
-    def location
+        def location
 	  return @location if @location
-	  l = (location_instance.location || location_instance.build_location)
+	  l = (self.node.locations.first || self.node.locations.new)
 	  l.uprofile = self
 	  @location = l
-    end
+        end
 	
 	def state
 	  if new_record? or
