@@ -29,8 +29,11 @@ module Urbmi5Drupal
 	end
 	
     def location
+          Rails.logger.info "entered location function"
 	  return @location if @location
+          Rails.logger.info "@location was blank"
 	  l = (location_instance.location || location_instance.build_location)
+          Rails.logger.info "l: #{l}"
 	  l.uprofile = self
 	  @location = l
     end
