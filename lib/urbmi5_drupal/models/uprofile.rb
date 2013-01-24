@@ -51,8 +51,10 @@ module Urbmi5Drupal
 		profile.blank? or
 		profile.phones.blank? or
 		location.blank? or
-		location.country_was.blank? or
-		location.postal_code_was.blank?
+		location.country_was.blank? or (
+                  location.country_was.upcase == "US" and
+		  location.postal_code_was.blank?
+                )
 	  )
 	    :step_two
 	  else
