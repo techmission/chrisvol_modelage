@@ -23,9 +23,9 @@ class Profile < ActiveRecord::Base
   validates :password, 
             :confirmation => true, 
             :unless => Proc.new {|p| p.password.blank? and p.password_confirmation.blank?} 
-  validates :phones, 
-            :presence => true, 
-			:if => Proc.new {|p| p.uprofile.individual_past_step_one?}
+  #validates :phones, 
+  #          :presence => true, 
+#			:if => Proc.new {|p| p.uprofile.individual_past_step_one?}
   
   def uprofile
     return nil unless drupal_uprofile_nid
