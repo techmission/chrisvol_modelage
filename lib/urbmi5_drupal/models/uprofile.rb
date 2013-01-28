@@ -16,9 +16,9 @@ module Urbmi5Drupal
 	validates :field_birth_year_value, 
 			  :numericality => {:only_integer => true, :greater_than => 999, :less_than => 10000},
 			  :allow_blank => true
-	validates :field_birth_year_value,
-	          :presence => true,
-			  :if       => :individual_past_step_one?
+	#validates :field_birth_year_value,
+	#          :presence => true,
+	#		  :if       => :individual_past_step_one?
 	
 	def profile
 	  Profile.find_by_drupal_uprofile_nid(self.nid)
