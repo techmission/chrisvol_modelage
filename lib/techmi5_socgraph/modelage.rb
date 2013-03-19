@@ -1,0 +1,7 @@
+require "rubygems"
+require "active_record"
+require "safe_attributes/base"
+require "composite_primary_keys"
+require "connection.rb"
+require "techmi5_socgraph/connection.rb"
+require "techmi5_socgraph/models/organization.rb"

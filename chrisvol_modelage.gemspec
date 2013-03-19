@@ -19,12 +19,16 @@ Gem::Specification.new do |s|
     "lib/urbmi5_drupal/models/location.rb",
     "lib/urbmi5_drupal/models/location_instance.rb",
     "lib/urbmi5_drupal/models/phone.rb",
+    "lib/urbmi5_drupal/models/position.rb",
+    "lib/urbmi5_drupal/models/term_node.rb",
+    "lib/urbmi5_drupal/models/term.rb",
+    "lib/urbmi5_drupal/models/vocabulary.rb",
     "lib/urbmi5_data/modelage.rb",
     "lib/techmi5_voleng/modelage.rb",
-	"lib/techmi5_voleng/connection.rb",
-	"lib/techmi5_voleng/models/country.rb",
-	"lib/techmi5_voleng/models/province.rb",
-	"lib/chrisvol_on_rails/modelage.rb",
+    "lib/techmi5_voleng/connection.rb",
+    "lib/techmi5_voleng/models/country.rb",
+    "lib/techmi5_voleng/models/province.rb",
+    "lib/chrisvol_on_rails/modelage.rb",
     "lib/chrisvol_on_rails/connection.rb",
     "lib/chrisvol_on_rails/models/profile.rb",
     "lib/chrisvol_on_rails/models/profile_certification.rb",
@@ -37,7 +41,11 @@ Gem::Specification.new do |s|
     "lib/chrisvol_on_rails/models/profile_skill.rb",
     "lib/chrisvol_on_rails/models/profile_volunteer_cause.rb",
     "lib/chrisvol_on_rails/models/profile_volunteer_experience.rb",
-    "lib/chrisvol_on_rails/models/profile_volunteer_organization.rb"
+    "lib/chrisvol_on_rails/models/profile_volunteer_organization.rb",
+    "lib/techmi5_socgraph/modelage.rb",
+    "lib/techmi5_socgraph/connection.rb",
+    "lib/techmi5_socgraph/models/organization.rb"
+
   ]
   for d in ["activerecord", "safe_attributes", "composite_primary_keys"]
     s.add_dependency(d)
