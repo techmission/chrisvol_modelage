@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
     "lib/urbmi5_drupal/acts_as_node.rb",
     "lib/urbmi5_drupal/models/node.rb", 
     "lib/urbmi5_drupal/models/uprofile.rb",
+    "lib/urbmi5_drupal/models/organization_owner.rb",
+    "lib/urbmi5_drupal/models/organization.rb",
     "lib/urbmi5_drupal/models/user.rb",
     "lib/urbmi5_drupal/models/session.rb",
     "lib/urbmi5_drupal/models/location.rb",
