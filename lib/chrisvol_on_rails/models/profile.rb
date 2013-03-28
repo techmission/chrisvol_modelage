@@ -29,7 +29,11 @@ class Profile < ActiveRecord::Base
   
   def uprofile
     return nil unless drupal_uprofile_nid
-	@uprofile ||= Urbmi5Drupal::Uprofile.find_by_nid(drupal_uprofile_nid)
+	  @uprofile ||= Urbmi5Drupal::Uprofile.find_by_nid(drupal_uprofile_nid)
+  end
+  
+  def to_param
+    uprofile.user.name
   end
   
   def current_positions
