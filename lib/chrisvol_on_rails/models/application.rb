@@ -1,3 +1,5 @@
 class Application < ActiveRecord::Base
-  belongs_to :opportunity, :class_name => "Urbmi5Drupal::Opportunity", :foreign_key => :opportunity_nid, :primary_key => :nid
+  def opportunity
+    Urbmi5Drupal::Opportunity.find_by_nid(self.opportunity_nid)
+  end
 end
