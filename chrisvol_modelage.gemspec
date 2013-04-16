@@ -44,6 +44,9 @@ Gem::Specification.new do |s|
     "lib/chrisvol_on_rails/models/profile_volunteer_cause.rb",
     "lib/chrisvol_on_rails/models/profile_volunteer_experience.rb",
     "lib/chrisvol_on_rails/models/profile_volunteer_organization.rb",
+    "lib/chrisvol_on_rails/models/application.rb",
+    "lib/chrisvol_on_rails/models/application_question.rb",
+    "lib/chrisvol_on_rails/models/application_question_option.rb",
     "lib/techmi5_socgraph/modelage.rb",
     "lib/techmi5_socgraph/connection.rb",
     "lib/techmi5_socgraph/models/organization.rb"
