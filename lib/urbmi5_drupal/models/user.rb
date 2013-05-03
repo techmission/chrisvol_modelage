@@ -11,7 +11,7 @@ module Urbmi5Drupal
     has_many :organizations, :through => :organization_owners
   
     def uprofile
-      uprofile_node = Node.find(:first, :conditions => "type = 'uprofile' and uid  = '#{self.id}'")
+      uprofile_node = Node.find(:first, :conditions => "type = 'uprofile' and uid  = '#{self.uid}'")
       return nil unless uprofile_node      
       Urbmi5Drupal::Uprofile.find_by_nid(uprofile_node.nid)
     end
