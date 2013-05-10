@@ -10,4 +10,9 @@ class Questionnaire < ActiveRecord::Base
   def opportunity
     Urbmi5Drupal::Position.find_by_nid(self.opportunity_nid)
   end
+  
+  def published?
+    !opportunities_questionnaires.empty?  
+  end
+ 
 end
