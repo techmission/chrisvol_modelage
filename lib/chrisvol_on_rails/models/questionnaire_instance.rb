@@ -26,6 +26,18 @@ class QuestionnaireInstance < ActiveRecord::Base
     end
   end
   
+  def filled_out_by?(user)
+    user.uid == self.profile.uprofile.node.uid
+  end
+  
+  def associated_org_owned_by?(user)
+    user.organizations.map{|o| o.nid}.include?(this.opportunities_questionnaire.questionnaire.organization.nid)
+  end
+  
+  def viewable_by?(user)
+    filled_out_by?(user) or associated_org_owned_by?(user)
+  end
+  
   private
   
   def require_answers
