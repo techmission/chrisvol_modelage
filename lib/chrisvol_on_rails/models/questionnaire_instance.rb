@@ -31,7 +31,7 @@ class QuestionnaireInstance < ActiveRecord::Base
   end
   
   def associated_org_owned_by?(user)
-    user.organizations.map{|o| o.nid}.include?(this.opportunities_questionnaire.questionnaire.organization.nid)
+    user.organizations.map{|o| o.nid}.include?(self.opportunities_questionnaire.questionnaire.organization.nid)
   end
   
   def viewable_by?(user)
