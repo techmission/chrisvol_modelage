@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
   
   validates_presence_of :format
   validates_presence_of :text
-  validates_presence_of :new_answer_options, :on => :update, :if => Proc.new{|q| q.answer_is_selected?}
+  validates_presence_of :new_answer_options, :on => :update, :if => Proc.new{|q| q.answer_is_selected? && !(new_answer_options.nil? && !answer_options.blank?)}
   
   ANSWER_FORMAT_SINGLE_LINE_TEXT = "single_line_text"
   ANSWER_FORMAT_MULTI_LINE_TEXT  = "multi_line_text"
