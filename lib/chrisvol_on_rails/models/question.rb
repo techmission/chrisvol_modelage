@@ -3,8 +3,7 @@ class Question < ActiveRecord::Base
 
   belongs_to :questionnaire
   has_many :answer_options, :primary_key => :id, :foreign_key => :question_id
-  
-  acts_as_list :scope => :questionnaire
+ 
   attr_accessor :new_answer_options
   after_save :save_options, :unless => Proc.new{|q| q.new_answer_options.nil?}
   
