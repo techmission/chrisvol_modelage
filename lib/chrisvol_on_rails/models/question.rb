@@ -3,13 +3,14 @@ class Question < ActiveRecord::Base
 
   belongs_to :questionnaire
   has_many :answer_options, :primary_key => :id, :foreign_key => :question_id
- 
+  
+  acts_as_list :scope => :questionnaire
   attr_accessor :new_answer_options
   after_save :save_options, :unless => Proc.new{|q| q.new_answer_options.nil?}
   
   validates_presence_of :format
   validates_presence_of :text
-  validates_presence_of :new_answer_options, :if => Proc.new{|q| q.answer_is_selected?}
+  validates_presence_of :new_answer_options, :on => :update, :if => Proc.new{|q| q.answer_is_selected?}
   
   ANSWER_FORMAT_SINGLE_LINE_TEXT = "single_line_text"
   ANSWER_FORMAT_MULTI_LINE_TEXT  = "multi_line_text"
