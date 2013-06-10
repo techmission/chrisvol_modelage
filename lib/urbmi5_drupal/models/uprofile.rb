@@ -94,9 +94,9 @@ module Urbmi5Drupal
     end
     
     def load_taxonomies
-      self.public_dir = self.node.terms.find_all_by_vid(279)
-      self.looking_for = self.node.terms.find_all_by_vid(332)
-      self.service_areas = self.node.terms.find_all_by_vid(32)
+      self.public_dir = self.node.terms.find_all_by_vid(279).map{|t| t.tid}
+      self.looking_for = self.node.terms.find_all_by_vid(332).map{|t| t.tid}
+      self.service_areas = self.node.terms.find_all_by_vid(32).map{|t| t.tid}
     end
     
     private
