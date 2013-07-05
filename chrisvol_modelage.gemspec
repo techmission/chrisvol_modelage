@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "lib/urbmi5_drupal/models/term_node.rb",
     "lib/urbmi5_drupal/models/term.rb",
     "lib/urbmi5_drupal/models/vocabulary.rb",
+    "lib/urbmi5_drupal/models/required_document.rb",
     "lib/urbmi5_data/modelage.rb",
     "lib/techmi5_voleng/modelage.rb",
     "lib/techmi5_voleng/connection.rb",
