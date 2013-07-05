@@ -6,5 +6,7 @@ module Urbmi5Drupal
     self.primary_key = 'nid'    
 
     include ChrisvolModelage::Urbmi5Drupal::ActsAsNode
+    
+    has_many :questionnaires, :foreign_key => "organization_nid", :primary_key => "nid"
   end
 end

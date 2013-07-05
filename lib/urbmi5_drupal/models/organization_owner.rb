@@ -1,4 +1,5 @@
 module Urbmi5Drupal
+  # TODO rename to OrganizationsOwner (to conform to customary naming conventions)
   class OrganizationOwner < ActiveRecord::Base
     include ChrisvolModelage::Urbmi5Drupal::Connection
 
