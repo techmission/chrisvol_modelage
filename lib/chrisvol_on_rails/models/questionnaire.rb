@@ -11,8 +11,16 @@ class Questionnaire < ActiveRecord::Base
     Urbmi5Drupal::Position.find_by_nid(self.opportunity_nid)
   end
   
+  def global?
+    !organization.nil?
+  end
+  
   def published?
-    !opportunities_questionnaires.empty?  
+    if global?
+      published
+    else
+      !opportunities_questionnaires.empty?  
+    end
   end
  
 end
