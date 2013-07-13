@@ -12,7 +12,7 @@ class Questionnaire < ActiveRecord::Base
   end
   
   def global?
-    !organization.nil?
+    organization.nil?
   end
   
   def published?
